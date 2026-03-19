@@ -1,19 +1,19 @@
-# Marine Haris
+# Haris Project
 
 > **"Haris"** (حارس) - Arabic for "Guardian" or "Protector"
 
-Maritime Security Operations Center (MSOC) infrastructure for secure vessel data collection and transmission.
+Maritime Security Operations Center (M-SOC) infrastructure for secure vessel data collection and transmission.
 
 ## Overview
 
-Marine Haris provides an open-source platform for maritime security operations, enabling real-time monitoring and data collection from vessels to onshore security operations centers.
+Haris Project provides an open-source platform for maritime security operations, enabling real-time monitoring and data collection from vessels to onshore security operations centers.
 
 ## Projects
 
 | Repository | Description |
 |------------|-------------|
-| [Marine_Haris](https://github.com/marineharis/Marine_Haris) | Edge device software for vessel data collection (NMEA 2000/0183, Signal K) |
-| [Watchtower](https://github.com/marineharis/Watchtower) | Ansible automation for deploying and managing edge devices and MSOC infrastructure |
+| [Marine_Haris](https://github.com/haris-project/Marine_Haris) | Edge device software for vessel data collection (NMEA 2000/0183, Signal K) |
+| [Watchtower](https://github.com/haris-project/Watchtower) | Ansible automation for deploying and managing edge devices and M-SOC infrastructure |
 
 ## Architecture
 
@@ -34,7 +34,7 @@ Marine Haris provides an open-source platform for maritime security operations, 
                                                    │ Tunnel
                                                    │
 ┌──────────────────────────────────────────────────┼──────────────┐
-│                         MSOC LAYER               ▼              │
+│                         M-SOC LAYER               ▼              │
 │  ┌─────────────────┐    ┌─────────────────────────────────┐     │
 │  │  Haris Gateway  │◀───│       ELK Stack / Logs          │     │
 │  └────────┬────────┘    └─────────────────────────────────┘     │
@@ -57,8 +57,8 @@ Marine Haris provides an open-source platform for maritime security operations, 
 
 ## Quick Links
 
-- [Marine_Haris Documentation](https://github.com/marineharis/Marine_Haris#readme)
-- [Watchtower Deployment Guide](https://github.com/marineharis/Watchtower#readme)
+- [Marine_Haris Documentation](https://github.com/haris-project/Marine_Haris#readme)
+- [Watchtower Deployment Guide](https://github.com/haris-project/Watchtower#readme)
 
 ## Hardware
 
@@ -82,7 +82,7 @@ MIT License - see individual repositories for details.
 
 ## Contact
 
-For technical support or security concerns: marineharis@ahmdngi.io
+For technical support or security concerns: haris@ahmdngi.io
 
 ---
 
