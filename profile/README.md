@@ -1,89 +1,67 @@
-# Haris Project
+# Project Haris
 
-> **"Haris"** (حارس) - Arabic for "Guardian" or "Protector"
+> "Haris" (حارس) means guardian.
 
-Maritime Security Operations Center (M-SOC) infrastructure for secure vessel data collection and transmission.
+Project Haris is a maritime cybersecurity lab and platform focused on secure vessel telemetry collection, remote operations, and M-SOC infrastructure.
 
-## Overview
+## What Lives Here
 
-Haris Project provides an open-source platform for maritime security operations, enabling real-time monitoring and data collection from vessels to onshore security operations centers.
+The repositories in this workspace map to a practical edge-to-core stack:
 
-## Projects
+- Vessel-side collection on Raspberry Pi hardware
+- Secure connectivity over Tailscale
+- Ansible-driven deployment and hardening
+- Central logging and monitoring on M-SOC nodes
+- Supporting tooling for topology visibility and research
 
-| Repository | Description |
-|------------|-------------|
-| [Marine_Haris](https://github.com/haris-project/Marine_Haris) | Edge device software for vessel data collection (NMEA 2000/0183, Signal K) |
-| [Watchtower](https://github.com/haris-project/Watchtower) | Ansible automation for deploying and managing edge devices and M-SOC infrastructure |
+## Active Repositories
+
+| Repository | What it does |
+| --- | --- |
+| [`marine_haris`](https://github.com/project-haris/marine_haris) | Edge platform for vessel data collection, Signal K integration, and Haris service deployment on Raspberry Pi systems |
+| [`watchtower`](https://github.com/project-haris/watchtower) | Ansible automation for vessel-edge and M-SOC infrastructure, including hardening, Tailscale, ELK, and Zabbix deployment |
+| [`haris.ahmdngi.io`](https://github.com/project-haris/haris.ahmdngi.io) | Static public site for the Haris platform |
+| [`tailscale-topography`](https://github.com/project-haris/tailscale-topography) | Small local web app that visualizes Tailscale peers and tailnet topology |
+| [`vsat-honeypot`](https://github.com/project-haris/vsat-honeypot) | Research honeypot that emulates a SAILOR 900 VSAT management interface for authorized lab use |
+
+## Current Topology
+
+From the checked-in `watchtower` inventory and playbooks, the current layout is:
+
+- `vessel_edge`: `haris-sinilind`
+- `msoc_core`: `haris-gateway`, `haris-citadel`
+
+The current automation applies:
+
+- `group_vessel_edge`: system prep, SSH hardening, firewalling, cron, Chrony, Zabbix agent, and the custom `haris` role
+- `group_msoc_core`: shared hardening plus Tailscale, Zabbix, and optional ELK/Zabbix server services
+
+`haris-citadel` is configured to run the ELK stack and Zabbix server, while the vessel edge host forwards logs toward the SOC side.
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         VESSEL LAYER                            │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────────────┐  │
-│  │ NMEA Network│───▶│ PiCAN-M HAT │───▶│ Raspberry Pi 5      │  │
-│  │ (2000/0183) │    │             │    │ Marine_Haris Edge   │  │
-│  └─────────────┘    └─────────────┘    └──────────┬──────────┘  │
-│                                                   │             │
-│                                         ┌────────▼────────┐     │
-│                                         │  Tailscale VPN  │     │
-│                                         └────────┬────────┘     │
-└──────────────────────────────────────────────────┼──────────────┘
-                                                   │
-                                                   │ Encrypted
-                                                   │ Tunnel
-                                                   │
-┌──────────────────────────────────────────────────┼──────────────┐
-│                         M-SOC LAYER               ▼              │
-│  ┌─────────────────┐    ┌─────────────────────────────────┐     │
-│  │  Haris Gateway  │◀───│       ELK Stack / Logs          │     │
-│  └────────┬────────┘    └─────────────────────────────────┘     │
-│           │                                                     │
-│           ▼                                                     │
-│  ┌─────────────────┐                                            │
-│  │ Haris Citadel   │  Central monitoring & analysis             │
-│  └─────────────────┘                                            │
-└─────────────────────────────────────────────────────────────────┘
+```text
+Vessel network
+  -> PiCAN-M / NMEA ingest
+  -> Raspberry Pi edge node running marine_haris
+  -> Tailscale tunnel
+  -> M-SOC nodes managed by watchtower
+  -> ELK and Zabbix services on haris-citadel
 ```
 
-## Key Features
+## Focus Areas
 
-- **NMEA Data Collection**: Parse and process NMEA 2000 and NMEA 0183 vessel data
-- **Signal K Integration**: Open marine data standard support
-- **Secure Transmission**: WireGuard/Tailscale encrypted VPN tunnels
-- **Edge Computing**: Real-time processing on Raspberry Pi hardware
-- **Centralized Logging**: ELK stack for log aggregation and analysis
-- **Infrastructure as Code**: Ansible-based deployment automation
+- Maritime telemetry and Signal K ingestion
+- Secure vessel-to-shore connectivity
+- Infrastructure-as-code for edge and M-SOC hosts
+- Monitoring, logging, and operational visibility
+- Defensive research around maritime-exposed systems
 
-## Quick Links
+## Notes
 
-- [Marine_Haris Documentation](https://github.com/haris-project/Marine_Haris#readme)
-- [Watchtower Deployment Guide](https://github.com/haris-project/Watchtower#readme)
-
-## Hardware
-
-| Component | Purpose |
-|-----------|---------|
-| Raspberry Pi 5 (16GB) | Edge processing unit |
-| PiCAN-M HAT | Marine CAN bus connectivity |
-| NVMe SSD (128GB) | Local storage |
-| TP-Link Archer NX200 | Cellular connectivity |
-
-## Security
-
-- End-to-end encryption via Tailscale (WireGuard)
-- Tamper-evident hardware design
-- Secure boot with storage encryption
-- Network isolation with firewall rules
-
-## License
-
-MIT License - see individual repositories for details.
+- This organization contains research and operational tooling intended for authorized environments.
+- Individual repositories may have different maturity levels and documentation depth as the platform evolves.
 
 ## Contact
 
-For technical support or security concerns: haris@ahmdngi.io
-
----
-
-**Notice**: This system is for authorized maritime security operations only.
+For technical or research contact: [ahmed@ahmdngi.io](mailto:ahmed@ahmdngi.io)
