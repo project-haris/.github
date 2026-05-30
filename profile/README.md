@@ -20,7 +20,7 @@ The repositories in this workspace map to a practical edge-to-core stack:
 | --- | --- |
 | [`marine_haris`](https://github.com/project-haris/marine_haris) | Edge platform for vessel data collection, Signal K integration, and Haris service deployment on Raspberry Pi systems |
 | [`watchtower`](https://github.com/project-haris/watchtower) | Ansible automation for vessel-edge and M-SOC infrastructure, including hardening, Tailscale, ELK, and Zabbix deployment |
-| [`haris.ahmdngi.io`](https://github.com/project-haris/haris.ahmdngi.io) | Static public site for the Haris platform |
+| [`haris.oversight.ee`](https://github.com/project-haris/haris.oversight.ee) | Static public site for the Haris platform |
 | [`tailscale-topography`](https://github.com/project-haris/tailscale-topography) | Small local web app that visualizes Tailscale peers and tailnet topology |
 | [`vsat-honeypot`](https://github.com/project-haris/vsat-honeypot) | Research honeypot that emulates a SAILOR 900 VSAT management interface for authorized lab use |
 
@@ -64,4 +64,4 @@ Vessel network
 
 ## Contact
 
-For technical or research contact: [ahmed@ahmdngi.io](mailto:ahmed@ahmdngi.io)
+For technical or research contact: [ahmed.nasr@oversight.ee](mailto:ahmed.nasr@oversight.ee)
