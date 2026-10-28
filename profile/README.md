@@ -11,14 +11,6 @@ Project Haris is a maritime cybersecurity lab and platform focused on secure ves
 | [`marine-haris`](https://github.com/project-haris/marine-haris) | Edge platform for vessel data collection, Signal K integration, and Haris service deployment on Raspberry Pi systems | MIT |
 | [`watchtower`](https://github.com/project-haris/watchtower) | Ansible automation for vessel-edge and M-SOC infrastructure, including hardening, Tailscale, ELK, and Zabbix deployment | MIT |
 
-## Supporting tools
-
-Maintained outside this organization, under the same MIT license:
-
-- [`tailscale-topography`](https://github.com/ahmdngi/tailscale-topography) — small local web app that visualizes Tailscale peers and tailnet topology
-
-Documentation: [`haris.oversight.ee`](https://github.com/ahmdngi/haris.oversight.ee) — static public site for the Haris platform.
-
 ## Current Topology
 
 From the checked-in `watchtower` inventory and playbooks, the current layout is:
