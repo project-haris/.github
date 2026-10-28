@@ -4,25 +4,23 @@
 
 Project Haris is a maritime cybersecurity lab and platform focused on secure vessel telemetry collection, remote operations, and M-SOC infrastructure.
 
-## What Lives Here
+## Repositories in this organization
 
-The repositories in this workspace map to a practical edge-to-core stack:
+| Repository | What it does | License |
+| --- | --- | --- |
+| [`marine-haris`](https://github.com/project-haris/marine-haris) | Edge platform for vessel data collection, Signal K integration, and Haris service deployment on Raspberry Pi systems | MIT |
+| [`watchtower`](https://github.com/project-haris/watchtower) | Ansible automation for vessel-edge and M-SOC infrastructure, including hardening, Tailscale, ELK, and Zabbix deployment | MIT |
 
-- Vessel-side collection on Raspberry Pi hardware
-- Secure connectivity over Tailscale
-- Ansible-driven deployment and hardening
-- Central logging and monitoring on M-SOC nodes
-- Supporting tooling for topology visibility and research
+## Supporting tools
 
-## Active Repositories
+Maintained outside this organization, under the same MIT license:
 
-| Repository | What it does |
-| --- | --- |
-| [`marine_haris`](https://github.com/project-haris/marine_haris) | Edge platform for vessel data collection, Signal K integration, and Haris service deployment on Raspberry Pi systems |
-| [`watchtower`](https://github.com/project-haris/watchtower) | Ansible automation for vessel-edge and M-SOC infrastructure, including hardening, Tailscale, ELK, and Zabbix deployment |
-| [`haris.oversight.ee`](https://github.com/project-haris/haris-website) | Static public site for the Haris platform |
-| [`tailscale-topography`](https://github.com/project-haris/tailscale-topography) | Small local web app that visualizes Tailscale peers and tailnet topology |
-| [`vsat-honeypot`](https://github.com/project-haris/vsat-honeypot) | Research honeypot that emulates a SAILOR 900 VSAT management interface for authorized lab use |
+- [`tailscale-topography`](https://github.com/ahmdngi/tailscale-topography) — small local web app that visualizes Tailscale peers and tailnet topology
+- [`vsat-honeypot`](https://github.com/ahmdngi/vsat-honeypot) — research honeypot that emulates a SAILOR 900 VSAT management interface for authorized lab use
+
+Documentation: [`haris.oversight.ee`](https://github.com/ahmdngi/haris.oversight.ee) — static public site for the Haris platform.
+
+The operational dashboard and the crew application are not public at this time.
 
 ## Current Topology
 
@@ -43,7 +41,7 @@ The current automation applies:
 ```text
 Vessel network
   -> PiCAN-M / NMEA ingest
-  -> Raspberry Pi edge node running marine_haris
+  -> Raspberry Pi edge node running marine-haris
   -> Tailscale tunnel
   -> M-SOC nodes managed by watchtower
   -> ELK and Zabbix services on haris-citadel
