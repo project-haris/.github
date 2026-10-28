@@ -16,11 +16,8 @@ Project Haris is a maritime cybersecurity lab and platform focused on secure ves
 Maintained outside this organization, under the same MIT license:
 
 - [`tailscale-topography`](https://github.com/ahmdngi/tailscale-topography) — small local web app that visualizes Tailscale peers and tailnet topology
-- [`vsat-honeypot`](https://github.com/ahmdngi/vsat-honeypot) — research honeypot that emulates a SAILOR 900 VSAT management interface for authorized lab use
 
 Documentation: [`haris.oversight.ee`](https://github.com/ahmdngi/haris.oversight.ee) — static public site for the Haris platform.
-
-The operational dashboard and the crew application are not public at this time.
 
 ## Current Topology
 
